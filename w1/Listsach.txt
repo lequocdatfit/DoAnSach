@@ -1,0 +1,4 @@
+OOP	1	60000	NgoTatTo	KIMDONG	1	0
+ctdl	2	39990	DINHBATIEN	SACHMOI	1	1
+concobebe	3	50000	Nguyen Thanh Nam	Sacht	0	1
+backimthang	5	22320	NGUYEN VU NAM	KIMDONG 0	1
