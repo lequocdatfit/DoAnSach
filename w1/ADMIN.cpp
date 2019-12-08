@@ -133,6 +133,48 @@ void ADMIN::Promotion()
 	
 }
 
+void ADMIN::set_Name(string ten)
+{
+	this->ten = ten;
+}
+
+void ADMIN::set_Pass(string pass)
+{
+	this->pass = pass;
+}
+
+void ADMIN::Guitinnhan(vector<User> ls_users)
+{
+	string id;
+	cout << "Nhap ten nguoi nhan" << endl;
+	cin.ignore();
+	getline(cin, id);
+	string tin;
+	bool kiemtra = false;
+	cout << "Nhap tin nhan can gui" << endl;
+	getline(cin, tin);
+	for (int i = 0; i < ls_users.size(); i++)
+	{
+		if (ls_users[i].getName() == id)
+		{
+			kiemtra = true;
+			ls_users[i].message = tin;
+			ofstream fileout;
+			fileout.open("Message[" + id + "]" + ".txt", ios::app);
+			fileout << this->get_ten() << "\t" << tin << endl;
+			fileout.close();
+		}
+	}
+	if (kiemtra == true)
+	{
+		cout << "Gui tin thanh cong" << endl;
+	}
+	else
+	{
+		cout << "Nguoi dung khong ton tai" << endl;
+	}
+}
+
 string ADMIN::get_ten()
 {
 	return this->ten;

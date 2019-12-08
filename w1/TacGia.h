@@ -18,7 +18,7 @@ public:
 	void set_ten(string ten);
 	void set_pass(string pass);
 	void Nhapthongtin();
-	void them(ListSach l);
+	void them();
 	void xoa();
 	void sua();
 	TacGia();

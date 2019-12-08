@@ -23,6 +23,9 @@ public:
 	void Xoa();
 	void Them();
 	void Promotion();
+	void set_Name(string ten);
+	void set_Pass(string pass);
+	void Guitinnhan(vector<User>ls_users);
 	string get_ten();
 	string get_pass();
 	ADMIN();

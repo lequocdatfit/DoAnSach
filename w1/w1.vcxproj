@@ -156,6 +156,7 @@
     <ClCompile Include="Guest.cpp" />
     <ClCompile Include="HoaDon.cpp" />
     <ClCompile Include="ListSach.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NXB.cpp" />
     <ClCompile Include="Sach.cpp" />
     <ClCompile Include="main.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Guest.h" />
     <ClInclude Include="HoaDon.h" />
     <ClInclude Include="ListSach.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="NXB.h" />
     <ClInclude Include="Sach.h" />
     <ClInclude Include="TacGia.h" />

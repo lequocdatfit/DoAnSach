@@ -1,6 +1,6 @@
 #include "file.h"
 
-void file::Docfile(ListSach& l, vector<TacGia>& ls_tg, vector<NXB>& ls_NXB, vector<User>&ls_users)
+void file::Docfile(ListSach& l, vector<TacGia>& ls_tg, vector<NXB>& ls_NXB, vector<User>&ls_users, vector<ADMIN>&ls_admin)
 {
 	ifstream filein;
 	string ten;
@@ -89,6 +89,18 @@ void file::Docfile(ListSach& l, vector<TacGia>& ls_tg, vector<NXB>& ls_NXB, vect
 		us.set_pass(pass);
 		us.set_age(age);
 		ls_users.push_back(us);
+	}
+	filein.close();
+
+	filein.open("ADMIN.txt", ios::in);
+	while (filein.eof()==false)
+	{
+		getline(filein, ten, '\t');
+		getline(filein, pass);
+		ADMIN ad;
+		ad.set_Name(ten);
+		ad.set_Pass(pass);
+		ls_admin.push_back(ad);
 	}
 	filein.close();
 }

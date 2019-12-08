@@ -48,7 +48,7 @@ void TacGia::Nhapthongtin()
 	this->pass = ten;
 }
 
-void TacGia::them(ListSach l)
+void TacGia::them()
 {
 	Sach a;
 	string ten;
