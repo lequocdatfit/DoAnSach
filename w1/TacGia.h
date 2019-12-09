@@ -12,15 +12,16 @@ private:
 	string pass;
 	ListSach list;
 public:
-	void Xemsach(ListSach src, bool An);
+	void Xemsach();
+	void GetBookFromSource(ListSach src);
 	string get_ten();
 	string get_pass();
 	void set_ten(string ten);
 	void set_pass(string pass);
 	void Nhapthongtin();
 	void them();
-	void xoa();
-	void sua();
+	void xoa(ListSach &src);
+	void sua(ListSach &src);
 	TacGia();
 	~TacGia();
 };

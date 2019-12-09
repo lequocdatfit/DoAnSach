@@ -20,6 +20,8 @@ public:
 	bool Promotionover18;
 	bool Promotionlesster18;
 	void Phanquyen();
+	void Xemsach();
+	void GetSourceBook(ListSach& src);
 	void Xoa();
 	void Them();
 	void Promotion();

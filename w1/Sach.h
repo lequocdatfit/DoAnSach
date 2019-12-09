@@ -12,8 +12,6 @@ private:
 	string NhaXuatBan;
 	int gia;
 public:
-	bool anNXB;
-	bool anTacgia;
 	void set_tensach(string);
 	void set_masach(string);
 	void set_giatien(int);

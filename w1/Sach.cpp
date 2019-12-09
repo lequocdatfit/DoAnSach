@@ -56,8 +56,6 @@ Sach::Sach()
 	this->gia = 1000;
 	this->ten_sach = "\0";
 	this->ma_sach = "\0";
-	this->anNXB = true;
-	this->anTacgia = true;
 }
 
 

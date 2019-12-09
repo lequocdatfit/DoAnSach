@@ -36,26 +36,6 @@ void ListSach::Nhap_n_sach()
 		cout << "Nhap nha xuat ban: " << endl;
 		getline(cin, ten);
 		x.set_NhaXuatBan(ten);
-		cout << "An tac gia (1: co, 0: khong)" << endl;
-		cin >> anTacgia;
-		if (anTacgia == 1)
-		{
-			x.anTacgia = true;
-		}
-		else
-		{
-			anTacgia = false;
-		}
-		cout << "An NXB(1:co, 0: khong" << endl;
-		cin >> anNXB;
-		if (anNXB == 1)
-		{
-			x.anNXB = true;
-		}
-		else
-		{
-			x.anNXB = false;
-		}
 		this->ls_sach.push_back(x);
 	}
 }
@@ -173,22 +153,6 @@ void ListSach::Docfilesach()
 		x.set_giatien(gia);
 		x.set_TenTacGia(tacgia);
 		x.set_NhaXuatBan(NXB);
-		if (antacgia == 1)
-		{
-			x.anTacgia = true;
-		}
-		else
-		{
-			x.anTacgia = false;
-		}
-		if (annxb == 1)
-		{
-			x.anNXB = true;
-		}
-		else
-		{
-			x.anNXB = false;
-		}
 		this->ls_sach.push_back(x);
 	}
 	filein.close();
@@ -207,9 +171,11 @@ void ListSach::Xuat()
 
 ListSach::ListSach()
 {
+
 }
 
 
 ListSach::~ListSach()
 {
+
 }

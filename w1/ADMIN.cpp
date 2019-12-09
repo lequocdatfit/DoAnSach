@@ -18,6 +18,17 @@ void ADMIN::Phanquyen()
 	}
 }
 
+void ADMIN::Xemsach()
+{
+	this->SachQL.Xuat();
+	system("pause");
+}
+
+void ADMIN::GetSourceBook(ListSach& src)
+{
+	this->SachQL = src;
+}
+
 void ADMIN::Xoa()
 {
 	int luachon;

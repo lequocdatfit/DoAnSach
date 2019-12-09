@@ -21,31 +21,12 @@ void file::Docfile(ListSach& l, vector<TacGia>& ls_tg, vector<NXB>& ls_NXB, vect
 		filein >> gia;
 		getline(filein, temp, '\t');
 		getline(filein, tacgia, '\t');
-		getline(filein, tNXB, '\t');
-		filein >> antacgia;
-		filein >> annxb;
-		getline(filein, temp);
+		getline(filein, tNXB);
 		x.set_tensach(ten);
 		x.set_masach(ma);
 		x.set_giatien(gia);
 		x.set_TenTacGia(tacgia);
 		x.set_NhaXuatBan(tNXB);
-		if (antacgia == 1)
-		{
-			x.anTacgia = true;
-		}
-		else
-		{
-			x.anTacgia = false;
-		}
-		if (annxb == 1)
-		{
-			x.anNXB = true;
-		}
-		else
-		{
-			x.anNXB = false;
-		}
 		l.ls_sach.push_back(x);
 	}
 	filein.close();
@@ -135,6 +116,16 @@ void file::GhiFileUser(vector<User> ls_User)
 		fileout << ls_User[i].getName() << "\t" << ls_User[i].getpass() << "\t" <<ls_User[i].get_Age() << endl;
 	}
 	fileout.close();
+}
+
+void file::GhiFileSach(ListSach l)
+{
+	fstream fileout;
+	fileout.open("Listsach.txt", ios::out);
+	for (int i = 0; i < l.ls_sach.size(); i++)
+	{
+		fileout << "\n" << l.ls_sach[i].get_tensach() << "\t" << l.ls_sach[i].get_masach() << "\t" << l.ls_sach[i].get_giatien() << "\t" << l.ls_sach[i].get_TenTacGia() << "\t" << l.ls_sach[i].get_NhaXuatBan();
+	}
 }
 
 void file::WriteUSERages(vector<User> ls_users)

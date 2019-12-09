@@ -27,7 +27,6 @@ int main()
 	//f.ReadUSERover18(ls_Userover18);
 	//f.ReadUSERlesster18(ls_Userlesster18);
 	//ls.Nhap_n_sach();
-	//ls.Xuat();
 	/*string ten;
 	cin.ignore();
 	cout << "Nhap ten sach can tim kiem" << endl;
@@ -76,20 +75,22 @@ int main()
 	int luachon = 1;
 	int mua = 1;
 	vector<HoaDon>ls_hoadon;
-	Guest g;
-	User x;
-	ADMIN ad;
-	TacGia tg;
-	NXB nxb;
-	string ten;
-	string pass;
-	string pass2;
+	
 
 	int flap = 0;
 	int dangnhap = 1;
 	//Dang nhap
 	do
 	{
+		Guest g;
+		User x;
+		ADMIN ad;
+		TacGia tg;
+		NXB nxb;
+		string ten;
+		string pass;
+		string pass2;
+		system("cls");
 		cout << "1.Dang nhap USER" << endl;
 		cout << "2.Dang nhap Admin" << endl;
 		cout << "3.Dang nhap tac gia" << endl;
@@ -100,12 +101,12 @@ int main()
 
 		if (dangnhap == 1)
 		{
+			cin.ignore();
 			do
 			{
 				system("cls");
 				cout << "Dang nhap USER" << endl;
 				cout << "Nhap id" << endl;
-				cin.ignore();
 				getline(cin, ten);
 				cout << "Nhap pass" << endl;
 				getline(cin, pass);
@@ -125,6 +126,7 @@ int main()
 					system("pause");
 				}
 			} while (flap != 1);
+			flap = 0;
 
 			while (luachon != 0)
 			{
@@ -170,7 +172,7 @@ int main()
 					cin >> luachon;
 					if (luachon == 1)
 					{
-						tg.Xemsach(ls, ad.phan_quyen);
+						tg.Xemsach();
 						system("pause");
 					}
 					if (luachon == 2)
@@ -184,7 +186,7 @@ int main()
 					cin >> luachon;
 					if (luachon == 1)
 					{
-						nxb.Xemsach(ls, ad.phan_quyen);
+						nxb.Xemsach();
 						system("pause");
 					}
 					break;
@@ -269,12 +271,12 @@ int main()
 		if (dangnhap == 2)
 		{
 			int loginad = 0;
+			cin.ignore();
 			do
 			{
 				system("cls");
 				cout << "Dang nhap Admin" << endl;
 				cout << "Nhap id" << endl;
-				cin.ignore();
 				getline(cin, ten);
 				cout << "Nhap pass" << endl;
 				getline(cin, pass);
@@ -294,12 +296,15 @@ int main()
 					system("pause");
 				}
 			} while (loginad != 1);
+
 			int luachonad = 1;
+			ad.GetSourceBook(ls);
 			while (luachonad != 0)
 			{
 				system("cls");
 				cout << "1. Khoa sach " << endl;
 				cout << "2. Nhan tin cho user" << endl;
+				cout << "3. Xem sach" << endl;
 				cout << "0. Thoat" << endl;
 				cin >> luachonad;
 				switch (luachonad)
@@ -312,9 +317,14 @@ int main()
 					ad.Guitinnhan(ls_User);
 					system("pause");
 					break;
+				case 3:
+					ad.Xemsach();
+					break;
 				case 0:
+					loginad = 0;
 					break;
 				default:
+					loginad = 0;
 					break;
 				}
 			}
@@ -323,12 +333,12 @@ int main()
 		if (dangnhap == 3)
 		{
 			int logintg = 0;
+			cin.ignore();
 			do
 			{
 				system("cls");
 				cout << "Dang nhap tac gia" << endl;
 				cout << "Nhap id" << endl;
-				cin.ignore();
 				getline(cin, ten);
 				cout << "Nhap pass" << endl;
 				getline(cin, pass);
@@ -339,7 +349,6 @@ int main()
 						logintg = 1;
 						cout << "Dang nhap thanh cong" << endl;
 						tg = ls_TacGia[i];
-						break;
 					}
 				}
 				if (logintg == 0)
@@ -349,43 +358,54 @@ int main()
 				}
 			} while (logintg!=1);
 			
+			tg.GetBookFromSource(ls);	// Lay sach cua tac gia do
 			int luachontg = 1;
-			system("cls");
-			cout << "1. xem sach" << endl;
-			cout << "2. them sach" << endl;
-			cout << "3. Xoa sach" << endl;
-			cout << "4. Sua sach" << endl;
-			cout << "Nhap lua chon" << endl;
-			cin >> luachontg;
-			if (luachontg == 1)
+			while (luachontg!=0)
 			{
-				tg.Xemsach(ls, ad.phan_quyen);
-				system("pause");
+				system("cls");
+				cout << "1. xem sach cua minh" << endl;
+				cout << "2. them sach" << endl;
+				cout << "3. Xoa sach" << endl;
+				cout << "4. Sua sach" << endl;
+				cout << "0. Thoat" << endl;
+				cout << "Nhap lua chon" << endl;
+				cin >> luachontg;
+				if (luachontg == 1)
+				{
+					tg.Xemsach();
+					system("pause");
+				}
+				if (luachontg == 2)
+				{
+					tg.them();
+				}
+				if (luachontg == 3)
+				{
+					tg.xoa(ls);
+					f.GhiFileSach(ls);
+				}
+				if (luachontg == 4)
+				{
+					tg.sua(ls);
+					f.GhiFileSach(ls);
+				}
+				if (luachontg == 0)
+				{
+					logintg = 0;
+				}
 			}
-			if (luachontg == 2)
-			{
-				tg.them();
-			}
-			if (luachontg == 3)
-			{
-				tg.xoa();
-			}
-			if (luachontg == 4)
-			{
-				tg.sua();
-			}
-			break;
+		
 		}
 		if (dangnhap == 4)
 		{
 			int loginnxb = 0;
-			int luachonnxb;
+			int luachonnxb = 1;
+			cin.ignore();
 			do
 			{
 				system("cls");
 				cout << "Dang nhap NXB" << endl;
 				cout << "Nhap id" << endl;
-				cin.ignore();
 				getline(cin, ten);
 				cout << "Nhap pass" << endl;
 				getline(cin, pass);
@@ -406,33 +426,44 @@ int main()
 				}
 			} while (loginnxb!=1);
 
-			system("cls");
-			cout << "1. xem sach" << endl;
-			cout << "2. them sach" << endl;
-			cout << "3. Xoa sach" << endl;
-			cout << "4. Sua sach" << endl;
-			cout << "Nhap lua chon" << endl;
-			cin >> luachonnxb;
-			if (luachonnxb == 1)
+			nxb.GetBookFromSource(ls);
+			while (luachonnxb!=0)
 			{
-				nxb.Xemsach(ls, ad.phan_quyen);
-				system("pause");
+				system("cls");
+				cout << "1. xem sach" << endl;
+				cout << "2. them sach" << endl;
+				cout << "3. Xoa sach" << endl;
+				cout << "4. Sua sach" << endl;
+				cout << "0. Thoat" << endl;
+				cout << "Nhap lua chon" << endl;
+				cin >> luachonnxb;
+				if (luachonnxb == 1)
+				{
+					nxb.Xemsach();
+					system("pause");
+				}
+				if (luachonnxb == 2)
+				{
+					nxb.Them();
+				}
+				if (luachonnxb == 3)
+				{
+					nxb.Xoa(ls);
+					f.GhiFileSach(ls);
+				}
+				if (luachonnxb == 4)
+				{
+					nxb.Sua(ls);
+					f.GhiFileSach(ls);
+				}
+				if (luachonnxb == 0)
+				{
+					loginnxb = 0;
+				}
 			}
-			if (luachonnxb == 2)
-			{
-				nxb.Them();
-			}
-			if (luachonnxb == 3)
-			{
-				nxb.Xoa();
-			}
-			if (luachonnxb == 4)
-			{
-				nxb.Sua();
-			}
-			break;
 		}
 	} while (dangnhap!=0);
 	system("pause");
+
 	return 0;
 }

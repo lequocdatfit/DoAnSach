@@ -10,15 +10,16 @@ class NXB
 	string pass;
 	ListSach list;
 public:
-	void Xemsach(ListSach src, bool An);
+	void Xemsach();
+	void GetBookFromSource(ListSach src);
 	void set_ten(string name);
 	void set_pass(string pass);
 	string get_ten();
 	string get_pass();
 	void Nhapthongtin();
 	void Them();
-	void Xoa();
-	void Sua();
+	void Xoa(ListSach &src);
+	void Sua(ListSach &src);
 	NXB();
 	~NXB();
 };
