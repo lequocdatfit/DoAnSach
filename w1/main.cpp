@@ -27,6 +27,7 @@ int main()
 	//f.ReadUSERover18(ls_Userover18);
 	//f.ReadUSERlesster18(ls_Userlesster18);
 	//ls.Nhap_n_sach();
+	
 	/*string ten;
 	cin.ignore();
 	cout << "Nhap ten sach can tim kiem" << endl;
@@ -91,11 +92,15 @@ int main()
 		string pass;
 		string pass2;
 		system("cls");
+		cout << "------------------MENU DANG NHAP--------------------" << endl;
 		cout << "1.Dang nhap USER" << endl;
 		cout << "2.Dang nhap Admin" << endl;
 		cout << "3.Dang nhap tac gia" << endl;
 		cout << "4.Dang nhap NXB" << endl;
+		cout << "5. GUEST (khong can dang nhap)" << endl;
+		cout << "6. Dang ki tai khoan USER" << endl;
 		cout << "0. Thoat" << endl;
+		cout << "----------------------------------------------------" << endl;
 		cout << "Nhap lua chon" << endl;
 		cin >> dangnhap;
 
@@ -116,6 +121,7 @@ int main()
 					{
 						flap = 1;
 						cout << "Dang nhap thanh cong" << endl;
+						system("pause");
 						x = ls_User[i];
 						break;
 					}
@@ -367,6 +373,8 @@ int main()
 				cout << "2. them sach" << endl;
 				cout << "3. Xoa sach" << endl;
 				cout << "4. Sua sach" << endl;
+				cout << "5. Khoa sach" << endl;
+				cout << "6. Mo khoa sach" << endl;
 				cout << "0. Thoat" << endl;
 				cout << "Nhap lua chon" << endl;
 				cin >> luachontg;
@@ -388,6 +396,14 @@ int main()
 				{
 					tg.sua(ls);
 					f.GhiFileSach(ls);
+				}
+				if (luachon == 5)
+				{
+					tg.Khoasach();
+				}
+				if (luachon == 6)
+				{
+					tg.Mokhoasach();
 				}
 				if (luachontg == 0)
 				{
@@ -460,6 +476,69 @@ int main()
 				{
 					loginnxb = 0;
 				}
+			}
+		}
+		if (dangnhap == 5)
+		{
+			Guest g;
+			int guest = 1;
+			do
+			{
+				system("cls");
+				cout << "1. Xem sach" << endl;
+				cout << "2. Tim sach" << endl;
+				cout << "0. Thoat" << endl;
+				cout << "Nhap lua chon" << endl;
+				cin >> guest;
+				switch (guest)
+				{
+				case 1:
+					ls.Xuat();
+					system("pause");
+					break;
+				case 2:
+					g.Timsach(ls);
+					system("pause");
+					break;
+				case 0:
+					break;
+				default:
+					break;
+				}
+			} while (guest!=0 );
+		}
+		if (dangnhap == 6)
+		{
+			system("cls");
+			User Us_new;
+			string ten;
+			string mk1;
+			string mk2;
+			int tuoi;
+			cout << "--------------DANG KI TAI KHOAN-----------------" << endl;
+			cout << "Nhap ten dang nhap" << endl;
+			cin.ignore();
+			getline(cin, ten);
+			cout << "Nhap tuoi" << endl;
+			cin >> tuoi;
+			cout << "Nhap mat khau" << endl;
+			cin.ignore();
+			getline(cin, mk1);
+			cout << "Nhap lai mat khau" << endl;
+			getline(cin, mk2);
+			if (mk1 == mk2)
+			{
+				Us_new.set_name(ten);
+				Us_new.set_pass(mk1);
+				Us_new.set_age(tuoi);
+				ls_User.push_back(Us_new);
+				f.GhithemUser(Us_new);
+				cout << "Tao tai khoan thanh cong" << endl;
+				system("pause");
+			}
+			else
+			{
+				cout << "Mat khau khong trung khop" << endl;
 			}
 		}
 	} while (dangnhap!=0);

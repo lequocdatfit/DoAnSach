@@ -56,6 +56,7 @@ Sach::Sach()
 	this->gia = 1000;
 	this->ten_sach = "\0";
 	this->ma_sach = "\0";
+	this->anSach = 0;
 }
 
 
@@ -64,4 +65,5 @@ Sach::~Sach()
 	this->ten_sach = "\0";
 	this->gia = 0;
 	this->ma_sach = "\0";
+	this->anSach = 0;
 }

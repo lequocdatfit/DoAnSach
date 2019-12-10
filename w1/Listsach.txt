@@ -1,6 +1,6 @@
-OOP	1	60000	Ngo Tat To	KIMDONG
-ctdl	2	39990	DINH BA TIEN	SACHMOI
-concobebe	3	50000	Nguyen Thanh Nam	Sacht
-backimthang	5	22320	NGUYEN VU NAM	KIM DONG
-Khoi nghiep	6	13000	Le Van Viet	SACH MOI
-lam giau	4	20000	Le Van Viet	SACH MOI
+OOP	1	60000	Ngo Tat To	KIM DONG	1
+ctdl	2	39990	DINH BA TIEN	SACH MOI	0
+concobebe	3	50000	Nguyen Thanh Nam	Sacht	0
+backimthang	5	22320	NGUYEN VU NAM	KIM DONG	0
+Khoi nghiep	6	13000	Le Van Viet	SACH MOI	1
+lam giau	4	20000	Le Van Viet	SACH MOI	0

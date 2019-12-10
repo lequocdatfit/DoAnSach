@@ -17,6 +17,7 @@ public:
 	int giamgiaover18;
 	int giamgiaolesster18;
 	bool phan_quyen;
+	int Ansach;
 	bool Promotionover18;
 	bool Promotionlesster18;
 	void Phanquyen();

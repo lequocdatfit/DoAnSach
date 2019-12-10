@@ -1,14 +1,2 @@
-﻿  ADMIN.cpp
-  NXB.cpp
-D:\đạt\Năm 2\OOP\DoAnSach\w1\ADMIN.cpp(124,6): warning C4101:  'giamgialesster18': unreferenced local variable
-D:\đạt\Năm 2\OOP\DoAnSach\w1\NXB.cpp(108,32): warning C4244:  'argument': conversion from 'float' to 'int', possible loss of data
-  file.cpp
-D:\đạt\Năm 2\OOP\DoAnSach\w1\NXB.cpp(116,31): warning C4244:  'argument': conversion from 'float' to 'int', possible loss of data
-D:\đạt\Năm 2\OOP\DoAnSach\w1\file.cpp(12,6): warning C4101:  'annxb': unreferenced local variable
-  main.cpp
-D:\đạt\Năm 2\OOP\DoAnSach\w1\file.cpp(11,6): warning C4101:  'antacgia': unreferenced local variable
-D:\đạt\Năm 2\OOP\DoAnSach\w1\main.cpp(451,14): error C2660:  'NXB::Xoa': function does not take 0 arguments
-D:\đạt\Năm 2\OOP\DoAnSach\w1\NXB.h(21,7): message :  see declaration of 'NXB::Xoa'
-D:\đạt\Năm 2\OOP\DoAnSach\w1\main.cpp(455,14): error C2660:  'NXB::Sua': function does not take 0 arguments
-  Generating Code...
-D:\đạt\Năm 2\OOP\DoAnSach\w1\NXB.h(22,7): message :  see declaration of 'NXB::Sua'
+﻿  main.cpp
+  w1.vcxproj -> D:\đạt\Năm 2\OOP\DoAnSach\x64\Debug\w1.exe

@@ -26,6 +26,58 @@ string TacGia::get_pass()
 	return this->pass;
 }
 
+void TacGia::Khoasach()
+{
+	cout << "Cac sach dang quan li" << endl;
+	list.Xuat();
+	cout << "Nhap ten sach can khoa" << endl;
+	string ten;
+	int flap = 0;
+	cin.ignore();
+	getline(cin, ten);
+	for (int j = 0; j < this->list.ls_sach.size(); j++)
+	{
+		if (list.ls_sach[j].get_tensach() == ten && list.ls_sach[j].anSach == 0)
+		{
+			list.ls_sach[j].anSach = 1;
+			flap = 1;
+		}
+	}
+	if (flap == 1)
+	{
+		cout << "Da an sach thanh cong" << endl;
+	}
+	else
+	{
+		cout << "Sach khong ton tai hoac da bi khoa" << endl;
+	}
+}
+
+void TacGia::Mokhoasach()
+{
+	cout << "Nhap ten sach can mo khoa" << endl;
+	string ten;
+	int flap = 0;
+	cin.ignore();
+	getline(cin, ten);
+	for (int i = 0; i < list.ls_sach.size(); i++)
+	{
+		if (list.ls_sach[i].get_tensach() == ten && list.ls_sach[i].anSach == 1)
+		{
+			list.ls_sach[i].anSach = 0;
+			flap = 1;
+		}
+	}
+	if (flap == 1)
+	{
+		cout << "Mo khoa sach thanh cong" << endl;
+	}
+	else
+	{
+		cout << "Sach khong ton tai hoac khong bi khoa truoc do" << endl;
+	}
+}
+
 void TacGia::set_ten(string ten)
 {
 	this->ten = ten;

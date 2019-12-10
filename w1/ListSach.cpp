@@ -177,5 +177,5 @@ ListSach::ListSach()
 
 ListSach::~ListSach()
 {
-
+	this->ls_sach.clear();
 }

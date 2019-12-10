@@ -8,9 +8,8 @@ void file::Docfile(ListSach& l, vector<TacGia>& ls_tg, vector<NXB>& ls_NXB, vect
 	int gia;
 	string tacgia;
 	string tNXB;
-	int antacgia;
-	int annxb;
 	int age;
+	int ansach;
 	string temp;
 	filein.open("Listsach.txt", ios::in);
 	while (filein.eof() == false)
@@ -21,12 +20,15 @@ void file::Docfile(ListSach& l, vector<TacGia>& ls_tg, vector<NXB>& ls_NXB, vect
 		filein >> gia;
 		getline(filein, temp, '\t');
 		getline(filein, tacgia, '\t');
-		getline(filein, tNXB);
+		getline(filein, tNXB,'\t');
+		filein >> ansach;
+		getline(filein, temp, '\n');
 		x.set_tensach(ten);
 		x.set_masach(ma);
 		x.set_giatien(gia);
 		x.set_TenTacGia(tacgia);
 		x.set_NhaXuatBan(tNXB);
+		x.anSach = ansach;
 		l.ls_sach.push_back(x);
 	}
 	filein.close();
@@ -118,13 +120,21 @@ void file::GhiFileUser(vector<User> ls_User)
 	fileout.close();
 }
 
+void file::GhithemUser(User x)
+{
+	fstream fileout;
+	fileout.open("USER.txt", ios::app);
+	fileout << "\n" << x.getName() << "\t" << x.getpass() << "\t" << x.get_Age();
+	fileout.close();
+}
+
 void file::GhiFileSach(ListSach l)
 {
 	fstream fileout;
 	fileout.open("Listsach.txt", ios::out);
 	for (int i = 0; i < l.ls_sach.size(); i++)
 	{
-		fileout << "\n" << l.ls_sach[i].get_tensach() << "\t" << l.ls_sach[i].get_masach() << "\t" << l.ls_sach[i].get_giatien() << "\t" << l.ls_sach[i].get_TenTacGia() << "\t" << l.ls_sach[i].get_NhaXuatBan();
+		fileout << "\n" << l.ls_sach[i].get_tensach() << "\t" << l.ls_sach[i].get_masach() << "\t" << l.ls_sach[i].get_giatien() << "\t" << l.ls_sach[i].get_TenTacGia() << "\t" << l.ls_sach[i].get_NhaXuatBan()<<"\t"<<l.ls_sach[i].anSach;
 	}
 }
 

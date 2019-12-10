@@ -12,6 +12,7 @@ public:
 	void GhiFileTacGia(vector<TacGia>ls_tg);
 	void GhiFileNXB(vector<NXB>ls_NXB);
 	void GhiFileUser(vector<User>ls_User);
+	void GhithemUser(User x);
 	void GhiFileSach(ListSach l);
 	void WriteUSERages(vector<User>ls_users);
 	void ReadUSERover18(vector<User>&ls_users);

@@ -24,7 +24,6 @@ public:
 	void set_age(int age);
 	void Guitinnhan(vector<User>ls_users);
 	void Xemtinnhan();
-
 	User();
 	~User();
 };

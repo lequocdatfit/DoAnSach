@@ -125,7 +125,6 @@ NXB::NXB()
 	this->pass = "12345";
 }
 
-
 NXB::~NXB()
 {
 	this->list.ls_sach.clear();
