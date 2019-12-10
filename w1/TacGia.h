@@ -16,8 +16,8 @@ public:
 	void GetBookFromSource(ListSach src);
 	string get_ten();
 	string get_pass();
-	void Khoasach();
-	void Mokhoasach();
+	void Khoasach(ListSach &ls);
+	void Mokhoasach(ListSach &ls);
 	void set_ten(string ten);
 	void set_pass(string pass);
 	void Nhapthongtin();

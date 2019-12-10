@@ -1,5 +1,78 @@
 #include "ADMIN.h"
 
+void ADMIN::Khoasach(ListSach &ls)
+{
+	cout << "Cac sach dang quan li" << endl;
+	SachQL.Xuat();
+	cout << "Nhap ten sach can khoa" << endl;
+	string ten;
+	int flap = 0;
+	cin.ignore();
+	getline(cin, ten);
+	for (int j = 0; j < this->SachQL.ls_sach.size(); j++)
+	{
+		if (SachQL.ls_sach[j].get_tensach() == ten && SachQL.ls_sach[j].anSach == 0)
+		{
+			SachQL.ls_sach[j].anSach = 1;
+			flap = 1;
+		}
+	}
+	for (int k = 0; k < ls.ls_sach.size(); k++)
+	{
+		if (ls.ls_sach[k].get_tensach() == ten && ls.ls_sach[k].anSach == 0)
+		{
+			ls.ls_sach[k].anSach = 1;
+		}
+	}
+
+	if (flap == 1)
+	{
+		cout << "Da an sach thanh cong" << endl;
+		system("pause");
+	}
+	else
+	{
+		cout << "Sach khong ton tai hoac da bi khoa" << endl;
+		system("pause");
+	}
+}
+
+void ADMIN::Mokhoasach(ListSach &ls)
+{
+	cout << "Cac sach dang quan li" << endl;
+	SachQL.Xuat();
+	cout << "Nhap ten sach can mo khoa" << endl;
+	string ten;
+	int flap = 0;
+	cin.ignore();
+	getline(cin, ten);
+	for (int i = 0; i < SachQL.ls_sach.size(); i++)
+	{
+		if (SachQL.ls_sach[i].get_tensach() == ten && SachQL.ls_sach[i].anSach == 1)
+		{
+			SachQL.ls_sach[i].anSach = 0;
+			flap = 1;
+		}
+	}
+	for (int k = 0; k < ls.ls_sach.size(); k++)
+	{
+		if (ls.ls_sach[k].get_tensach() == ten && ls.ls_sach[k].anSach == 1)
+		{
+			ls.ls_sach[k].anSach = 0;
+		}
+	}
+	if (flap == 1)
+	{
+		cout << "Mo khoa sach thanh cong" << endl;
+		system("pause");
+	}
+	else
+	{
+		cout << "Sach khong ton tai hoac khong bi khoa truoc do" << endl;
+		system("pause");
+	}
+}
+
 void ADMIN::Phanquyen()
 {
 	cout << "Ban co muon phan quyen cho tac gia va nha xuat ban" << endl;

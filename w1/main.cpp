@@ -21,63 +21,14 @@ int main()
 	vector<User> ls_User;
 	vector<User> ls_Userover18;
 	vector<User> ls_Userlesster18;
+	vector<HoaDon>ls_hoadon;
 	file f;
 	f.Docfile(ls, ls_TacGia, ls_NXB, ls_User, ls_admin);
-	f.WriteUSERages(ls_User);
+	//f.WriteUSERages(ls_User);
 	//f.ReadUSERover18(ls_Userover18);
 	//f.ReadUSERlesster18(ls_Userlesster18);
-	//ls.Nhap_n_sach();
-	
-	/*string ten;
-	cin.ignore();
-	cout << "Nhap ten sach can tim kiem" << endl;
-	getline(cin, ten);
-	ls.Timkiemvacapnhat(ten);
-	ls.Xuat();*/
-
-
-	/*vector<HoaDon>ls_hoadon;
-	HoaDon a;
-	int tongtien = 0;
-	int luachon = 1;
-	do
-	{
-		system("cls");
-		a.Tinhhoadon(ls);
-		if (a.Get_book().get_tensach() != "\0")
-		{
-			ls_hoadon.push_back(a);
-		}
-		cout << "Ban muon mua them khong (1: them, 0:Khong)" << endl;
-		cin >> luachon;
-	} while (luachon != 0);
-	for (int i = 0; i < ls_hoadon.size(); i++)
-	{
-		tongtien += ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong();
-		cout << ls_hoadon[i].Get_book().get_tensach() << "\t" << ls_hoadon[i].Get_book().get_giatien() << "*" << ls_hoadon[i].Get_soluong() << " =" << ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong() << endl;
-	}
-	cout << "==================================" << endl;
-	cout << "Tong tien la:" << tongtien << endl;*/
-
-
-
-	//int luachon = 0;
-	/*string user, pass;
-	Guest* a;
-	a = new User();
-	cout << "Nhap user" << endl;
-	getline(cin, user);
-	getline(cin, pass);
-	if (user == a->getName() && user == a->getPass())
-	{
-		cout << "Dang nhap thanh cong" << endl;
-	}*/
-	
 	int luachon = 1;
 	int mua = 1;
-	vector<HoaDon>ls_hoadon;
-	
-
 	int flap = 0;
 	int dangnhap = 1;
 	//Dang nhap
@@ -151,20 +102,15 @@ int main()
 				switch (luachon)
 				{
 				case 1:
-					x.Muasach(ls_hoadon, ls);
-					while (mua != 0)
+					x.Muasach(ls);
+					system("cls");
+					if (x.get_Age() > 18)
 					{
-						system("cls");
-						if (x.get_Age() > 18)
-						{
-							x.Capnhatdonhang(ls_hoadon, ls, ad.giamgiaover18);
-						}
-						else
-						{
-							x.Capnhatdonhang(ls_hoadon, ls, ad.giamgiaolesster18);
-						}
-						cout << "Ban co muon cap nhat don hang(1:co, 0:khong)" << endl;
-						cin >> mua;
+						x.Capnhatdonhang(ls, ad.giamgiaover18);
+					}
+					else
+					{
+						x.Capnhatdonhang(ls,ad.giamgiaolesster18);
 					}
 					break;
 				case 2:
@@ -220,14 +166,14 @@ int main()
 								getline(cin, pass);
 								if (ten == x.getName() && pass == x.getpass())
 								{
-									x.Muasach(ls_hoadon, ls);
-									while (mua != 0)
+									x.Muasach(ls);
+									/*while (mua != 0)
 									{
-										system("cls");
-										x.Capnhatdonhang(ls_hoadon, ls, ad.giamgiaolesster18);
-										cout << "Ban co muon cap nhat don hang(1:co, 0:khong)" << endl;
-										cin >> mua;
-									}
+										system("cls");*/
+										x.Capnhatdonhang(ls, ad.giamgiaolesster18);
+									//	cout << "Ban co muon cap nhat don hang(1:co, 0:khong)" << endl;
+									//	cin >> mua;
+									//}
 								}
 							}
 							if (luachon == 2)
@@ -308,10 +254,16 @@ int main()
 			while (luachonad != 0)
 			{
 				system("cls");
+				cout << "----------------------ADMIN----------------------" << endl;
 				cout << "1. Khoa sach " << endl;
 				cout << "2. Nhan tin cho user" << endl;
 				cout << "3. Xem sach" << endl;
+				cout << "4. Khoa sach" << endl;
+				cout << "5. Mo khoa sach" << endl;
+				cout << "6. Gui tin nhan" << endl;
 				cout << "0. Thoat" << endl;
+				cout << "-------------------------------------------------" << endl;
+				cout << "Nhap lua chon" << endl;
 				cin >> luachonad;
 				switch (luachonad)
 				{
@@ -326,6 +278,15 @@ int main()
 				case 3:
 					ad.Xemsach();
 					break;
+				case 4:
+					ad.Khoasach(ls);
+					break;
+				case 5:
+					ad.Mokhoasach(ls);
+					break;
+				case 6:
+					ad.Guitinnhan(ls_User);
+					break;
 				case 0:
 					loginad = 0;
 					break;
@@ -335,7 +296,6 @@ int main()
 				}
 			}
 		}
-
 		if (dangnhap == 3)
 		{
 			int logintg = 0;
@@ -369,6 +329,7 @@ int main()
 			while (luachontg!=0)
 			{
 				system("cls");
+				cout << "--------------------TAC GIA--------------------" << endl;
 				cout << "1. xem sach cua minh" << endl;
 				cout << "2. them sach" << endl;
 				cout << "3. Xoa sach" << endl;
@@ -376,6 +337,7 @@ int main()
 				cout << "5. Khoa sach" << endl;
 				cout << "6. Mo khoa sach" << endl;
 				cout << "0. Thoat" << endl;
+				cout << "------------------------------------------------" << endl;
 				cout << "Nhap lua chon" << endl;
 				cin >> luachontg;
 				if (luachontg == 1)
@@ -397,13 +359,13 @@ int main()
 					tg.sua(ls);
 					f.GhiFileSach(ls);
 				}
-				if (luachon == 5)
+				if (luachontg == 5)
 				{
-					tg.Khoasach();
+					tg.Khoasach(ls);
 				}
-				if (luachon == 6)
+				if (luachontg == 6)
 				{
-					tg.Mokhoasach();
+					tg.Mokhoasach(ls);
 				}
 				if (luachontg == 0)
 				{
@@ -446,11 +408,15 @@ int main()
 			while (luachonnxb!=0)
 			{
 				system("cls");
+				cout << "----------------NHA XUAT BAN------------------" << endl;
 				cout << "1. xem sach" << endl;
 				cout << "2. them sach" << endl;
 				cout << "3. Xoa sach" << endl;
 				cout << "4. Sua sach" << endl;
+				cout << "5. Khoa sach" << endl;
+				cout << "6. Mo khoa sach" << endl;
 				cout << "0. Thoat" << endl;
+				cout << "-----------------------------------------------" << endl;
 				cout << "Nhap lua chon" << endl;
 				cin >> luachonnxb;
 				if (luachonnxb == 1)
@@ -472,6 +438,14 @@ int main()
 					nxb.Sua(ls);
 					f.GhiFileSach(ls);
 				}
+				if (luachonnxb == 5)
+				{
+					nxb.Khoasach(ls);
+				}
+				if (luachonnxb == 6)
+				{
+					nxb.Mokhoasach(ls);
+				}
 				if (luachonnxb == 0)
 				{
 					loginnxb = 0;
@@ -485,15 +459,17 @@ int main()
 			do
 			{
 				system("cls");
+				cout << "----------------------GUEST---------------------" << endl;
 				cout << "1. Xem sach" << endl;
 				cout << "2. Tim sach" << endl;
 				cout << "0. Thoat" << endl;
+				cout << "------------------------------------------------" << endl;
 				cout << "Nhap lua chon" << endl;
 				cin >> guest;
 				switch (guest)
 				{
 				case 1:
-					ls.Xuat();
+					ls.XuatCoPhanQuyen();
 					system("pause");
 					break;
 				case 2:

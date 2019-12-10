@@ -8,6 +8,7 @@ public:
 	vector<Sach>ls_sach;
 	void Docfilesach();
 	void Xuat();
+	void XuatCoPhanQuyen();
 	void Nhap(Sach);
 	void Nhap_n_sach();
 	void Timkiemvacapnhat(string ten);

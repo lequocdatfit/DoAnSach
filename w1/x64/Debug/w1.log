@@ -1,2 +1,3 @@
-﻿  main.cpp
+﻿  Guest.cpp
+D:\đạt\Năm 2\OOP\DoAnSach\w1\Guest.cpp(55): warning C4715:  'Guest::Timsach': not all control paths return a value
   w1.vcxproj -> D:\đạt\Năm 2\OOP\DoAnSach\x64\Debug\w1.exe

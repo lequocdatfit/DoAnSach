@@ -20,6 +20,8 @@ public:
 	int Ansach;
 	bool Promotionover18;
 	bool Promotionlesster18;
+	void Khoasach(ListSach &ls);
+	void Mokhoasach(ListSach &ls);
 	void Phanquyen();
 	void Xemsach();
 	void GetSourceBook(ListSach& src);

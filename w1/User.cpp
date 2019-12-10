@@ -15,7 +15,7 @@ void User::Nhapthongtin()
 	this->pass = pass;
 }
 
-void User::Muasach(vector<HoaDon> &ls_hoadon, ListSach &l)
+void User::Muasach(ListSach &l)
 {
 	HoaDon x;
 	Sach* a = NULL;
@@ -34,6 +34,7 @@ void User::Muasach(vector<HoaDon> &ls_hoadon, ListSach &l)
 			x.Set_Tien(soluong * (*a).get_giatien());
 			ls_hoadon.push_back(x);
 			cout << "Da them vao hoa don" << endl;
+			system("pause");
 		}
 		else
 		{
@@ -44,31 +45,18 @@ void User::Muasach(vector<HoaDon> &ls_hoadon, ListSach &l)
 	}
 }
 
-void User::Capnhatdonhang(vector<HoaDon>& ls_hoadon, ListSach &l, int giamgia)
+void User::Capnhatdonhang(ListSach &l, int giamgia)
 {
 	int luachon = 0;
 	int vitri;
-	float tongtien = 0;
-	for (int i = 0; i < ls_hoadon.size(); i++)
+	do
 	{
-		tongtien += ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong();
-		cout << ls_hoadon[i].Get_book().get_tensach() << "\t" << ls_hoadon[i].Get_book().get_giatien() << "*" << ls_hoadon[i].Get_soluong() << " =" << ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong() << endl;
-	}
-	cout << "Giam gia: " << giamgia << "%" << endl;
-	cout << "==================================" << endl;
-	cout << "Tong tien la:" << tongtien-tongtien*giamgia/100*1.0 << endl;
-	cout << "ban co muon them hay xoa khong? (1:them, 2:xoa, 0: khong )" << endl;
-	cin >> luachon;
-	if (luachon == 1)
-	{
-		this->Muasach(ls_hoadon, l);
-	}
-	if (luachon == 2)
-	{
-		cout << "Nhap vi tri sach can xoa" << endl;
-		cin >> vitri;
-		ls_hoadon.erase(ls_hoadon.begin() + vitri-1);
-		tongtien = 0;
+		float tongtien = 0;
+		system("cls");
+		cout << "----------------------------------" << endl;
+		cout << "\t**HOA DON**" << endl;
+		cout << "\tKhach hang: " << this->getName() << endl;
+		cout << "----------------------------------" << endl;
 		for (int i = 0; i < ls_hoadon.size(); i++)
 		{
 			tongtien += ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong();
@@ -76,8 +64,34 @@ void User::Capnhatdonhang(vector<HoaDon>& ls_hoadon, ListSach &l, int giamgia)
 		}
 		cout << "Giam gia: " << giamgia << "%" << endl;
 		cout << "==================================" << endl;
-		cout << "Tong tien la:" << tongtien-tongtien * giamgia / 100 * 1.0 << endl;
-	}
+		cout << "Tong tien la: " << tongtien - tongtien * giamgia / 100 * 1.0 << endl;
+		cout << "ban co muon them hay xoa khong? (1:them, 2:xoa, 0: khong )" << endl;
+		cin >> luachon;
+		if (luachon == 1)
+		{
+			this->Muasach(l);
+		}
+		if (luachon == 2)
+		{
+			cout << "Nhap vi tri sach can xoa" << endl;
+			cin >> vitri;
+			ls_hoadon.erase(ls_hoadon.begin() + vitri - 1);
+			tongtien = 0;
+			for (int i = 0; i < ls_hoadon.size(); i++)
+			{
+				tongtien += ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong();
+				cout << ls_hoadon[i].Get_book().get_tensach() << "\t" << ls_hoadon[i].Get_book().get_giatien() << "*" << ls_hoadon[i].Get_soluong() << " =" << ls_hoadon[i].Get_book().get_giatien() * ls_hoadon[i].Get_soluong() << endl;
+			}
+			cout << "Giam gia: " << giamgia << "%" << endl;
+			cout << "==================================" << endl;
+			cout << "Tong tien la:" << tongtien - tongtien * giamgia / 100 * 1.0 << endl;
+		}
+		if (luachon == 0)
+		{
+			cout << "Cam on quy khach da mua hang" << endl;
+			system("pause");
+		}
+	} while (luachon!=0);
 }
 
 string User::getName()

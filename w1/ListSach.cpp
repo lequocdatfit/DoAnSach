@@ -165,9 +165,24 @@ void ListSach::Xuat()
 		cout << "Ten sach: " << this->ls_sach[i].get_tensach() <<endl;
 		cout << "Ma sach: " << this->ls_sach[i].get_masach() << endl;
 		cout << "Gia tien: " << this->ls_sach[i].get_giatien() << endl;
+		cout << "An sach: " << this->ls_sach[i].anSach << endl;
+		cout << "--------------------------------------" << endl;
 	}
 }
 
+void ListSach::XuatCoPhanQuyen()
+{
+	for (int i = 0; i < ls_sach.size(); i++)
+	{
+		if (ls_sach[i].anSach == 0)
+		{
+			cout << "Ten sach: " << this->ls_sach[i].get_tensach() << endl;
+			cout << "Ma sach: " << this->ls_sach[i].get_masach() << endl;
+			cout << "Gia tien: " << this->ls_sach[i].get_giatien() << endl;
+			cout << "-----------------------------------------" << endl;
+		}
+	}
+}
 
 ListSach::ListSach()
 {

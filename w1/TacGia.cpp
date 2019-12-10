@@ -26,7 +26,7 @@ string TacGia::get_pass()
 	return this->pass;
 }
 
-void TacGia::Khoasach()
+void TacGia::Khoasach(ListSach &ls)
 {
 	cout << "Cac sach dang quan li" << endl;
 	list.Xuat();
@@ -43,18 +43,30 @@ void TacGia::Khoasach()
 			flap = 1;
 		}
 	}
+	for (int k = 0; k < ls.ls_sach.size(); k++)
+	{
+		if (ls.ls_sach[k].get_tensach() == ten && ls.ls_sach[k].anSach == 0)
+		{
+			ls.ls_sach[k].anSach = 1;
+		}
+	}
+
 	if (flap == 1)
 	{
 		cout << "Da an sach thanh cong" << endl;
+		system("pause");
 	}
 	else
 	{
 		cout << "Sach khong ton tai hoac da bi khoa" << endl;
+		system("pause");
 	}
 }
 
-void TacGia::Mokhoasach()
+void TacGia::Mokhoasach(ListSach &ls)
 {
+	cout << "Cac sach dang quan li" << endl;
+	list.Xuat();
 	cout << "Nhap ten sach can mo khoa" << endl;
 	string ten;
 	int flap = 0;
@@ -68,13 +80,22 @@ void TacGia::Mokhoasach()
 			flap = 1;
 		}
 	}
+	for (int k = 0; k < ls.ls_sach.size(); k++)
+	{
+		if (ls.ls_sach[k].get_tensach() == ten && ls.ls_sach[k].anSach == 1)
+		{
+			ls.ls_sach[k].anSach = 0;
+		}
+	}
 	if (flap == 1)
 	{
 		cout << "Mo khoa sach thanh cong" << endl;
+		system("pause");
 	}
 	else
 	{
 		cout << "Sach khong ton tai hoac khong bi khoa truoc do" << endl;
+		system("pause");
 	}
 }
 

@@ -11,11 +11,12 @@ private:
 	string Name;
 	int Age;
 	string pass;
+	vector<HoaDon>ls_hoadon;
 public:
 	string message;
 	void Nhapthongtin();
-	void Muasach(vector<HoaDon> &ls_hoadon, ListSach &l);
-	void Capnhatdonhang(vector<HoaDon>&ls_hoadon, ListSach &l, int giamgia);
+	void Muasach(ListSach &l);
+	void Capnhatdonhang(ListSach &l, int giamgia);
 	string getName();
 	string getpass();
 	int get_Age();

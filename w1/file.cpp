@@ -138,6 +138,13 @@ void file::GhiFileSach(ListSach l)
 	}
 }
 
+void file::GhiFileHoadon(vector<HoaDon>ls_hoadon)
+{
+	fstream fileout;
+	fileout.open("Hoadon.txt", ios::app);
+	//fileout<<""
+}
+
 void file::WriteUSERages(vector<User> ls_users)
 {
 	vector<User>ls_userover18;
