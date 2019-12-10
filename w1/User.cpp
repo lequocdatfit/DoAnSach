@@ -54,7 +54,7 @@ void User::Capnhatdonhang(ListSach &l, int giamgia)
 		float tongtien = 0;
 		system("cls");
 		cout << "----------------------------------" << endl;
-		cout << "\t**HOA DON**" << endl;
+		cout << "\t**DON HANG**" << endl;
 		cout << "\tKhach hang: " << this->getName() << endl;
 		cout << "----------------------------------" << endl;
 		for (int i = 0; i < ls_hoadon.size(); i++)
@@ -65,7 +65,7 @@ void User::Capnhatdonhang(ListSach &l, int giamgia)
 		cout << "Giam gia: " << giamgia << "%" << endl;
 		cout << "==================================" << endl;
 		cout << "Tong tien la: " << tongtien - tongtien * giamgia / 100 * 1.0 << endl;
-		cout << "ban co muon them hay xoa khong? (1:them, 2:xoa, 0: khong )" << endl;
+		cout << "ban co muon them hay xoa khong? (1:them, 2:xoa, 0: xac nhan mua )" << endl;
 		cin >> luachon;
 		if (luachon == 1)
 		{

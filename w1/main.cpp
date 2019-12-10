@@ -24,30 +24,27 @@ int main()
 	vector<HoaDon>ls_hoadon;
 	file f;
 	f.Docfile(ls, ls_TacGia, ls_NXB, ls_User, ls_admin);
-	//f.WriteUSERages(ls_User);
-	//f.ReadUSERover18(ls_Userover18);
-	//f.ReadUSERlesster18(ls_Userlesster18);
-	int luachon = 1;
-	int mua = 1;
-	int flap = 0;
+	f.WriteUSERages(ls_User);
+	f.ReadUSERover18(ls_Userover18);
+	f.ReadUSERlesster18(ls_Userlesster18);
 	int dangnhap = 1;
 	//Dang nhap
+	Guest g;
+	User x;
+	ADMIN ad;
+	TacGia tg;
+	NXB nxb;
 	do
 	{
-		Guest g;
-		User x;
-		ADMIN ad;
-		TacGia tg;
-		NXB nxb;
 		string ten;
 		string pass;
 		string pass2;
 		system("cls");
 		cout << "------------------MENU DANG NHAP--------------------" << endl;
-		cout << "1.Dang nhap USER" << endl;
-		cout << "2.Dang nhap Admin" << endl;
-		cout << "3.Dang nhap tac gia" << endl;
-		cout << "4.Dang nhap NXB" << endl;
+		cout << "1. Dang nhap USER" << endl;
+		cout << "2. Dang nhap Admin" << endl;
+		cout << "3. Dang nhap tac gia" << endl;
+		cout << "4. Dang nhap NXB" << endl;
 		cout << "5. GUEST (khong can dang nhap)" << endl;
 		cout << "6. Dang ki tai khoan USER" << endl;
 		cout << "0. Thoat" << endl;
@@ -58,8 +55,10 @@ int main()
 		if (dangnhap == 1)
 		{
 			cin.ignore();
+			int flap = 0;
 			do
 			{
+				
 				system("cls");
 				cout << "Dang nhap USER" << endl;
 				cout << "Nhap id" << endl;
@@ -84,18 +83,14 @@ int main()
 				}
 			} while (flap != 1);
 			flap = 0;
-
+			int luachon = 1;
 			while (luachon != 0)
 			{
 				system("cls");
-				cout << "1. Mua sach va cap nhat" << endl;
-				cout << "2. Phan quyen admin" << endl;
-				cout << "3. Tac gia" << endl;
-				cout << "4. NXB" << endl;
-				cout << "5. Guest" << endl;
-				cout << "6. Gui tin nhan" << endl;
-				cout << "7. Xem tin nhan" << endl;
-				cout << "8. Promotion" << endl;
+				cout << "1. Mua sach" << endl;
+				cout << "2. Xem sach" << endl;
+				cout << "3. Gui tin nhan" << endl;
+				cout << "4. Xem tin nhan" << endl;
 				cout << "0. Thoat" << endl;
 				cout << "Nhap lua chon" << endl;
 				cin >> luachon;
@@ -107,109 +102,23 @@ int main()
 					if (x.get_Age() > 18)
 					{
 						x.Capnhatdonhang(ls, ad.giamgiaover18);
+						f.GhiFileHoadon(x);
 					}
 					else
 					{
 						x.Capnhatdonhang(ls,ad.giamgiaolesster18);
+						f.GhiFileHoadon(x);
 					}
+					x.ls_hoadon.clear();
 					break;
 				case 2:
-					ad.Phanquyen();
-					system("pause");
+					ls.XuatCoPhanQuyen();
 					break;
 				case 3:
-					cout << "1. xem sach" << endl;
-					cout << "2. them sach" << endl;
-					cout << "Nhap lua chon" << endl;
-					cin >> luachon;
-					if (luachon == 1)
-					{
-						tg.Xemsach();
-						system("pause");
-					}
-					if (luachon == 2)
-					{
-						tg.them();
-					}
-					break;
-				case 4:
-					cout << "1. xem sach" << endl;
-					cout << "Nhap lua chon" << endl;
-					cin >> luachon;
-					if (luachon == 1)
-					{
-						nxb.Xemsach();
-						system("pause");
-					}
-					break;
-				case 5:
-					g.Timsach(ls);
-					cout << "Ban muon mua sach(1:co, 0:khong) ?" << endl;
-					cin >> luachon;
-					if (luachon == 1)
-					{
-						while (luachon != 0)
-						{
-							system("cls");
-							cout << "1. Dang nhap" << endl;
-							cout << "2. Dang ki" << endl;
-							cout << "0. Thoat" << endl;
-							cout << "Nhap lua chon" << endl;
-							cin >> luachon;
-							if (luachon == 1)
-							{
-								cin.ignore();
-								cout << "Dang nhap" << endl;
-								cout << "Nhap ten user";
-								getline(cin, ten);
-								cout << "Nhap pass" << endl;
-								getline(cin, pass);
-								if (ten == x.getName() && pass == x.getpass())
-								{
-									x.Muasach(ls);
-									/*while (mua != 0)
-									{
-										system("cls");*/
-										x.Capnhatdonhang(ls, ad.giamgiaolesster18);
-									//	cout << "Ban co muon cap nhat don hang(1:co, 0:khong)" << endl;
-									//	cin >> mua;
-									//}
-								}
-							}
-							if (luachon == 2)
-							{
-								cin.ignore();
-								User y;
-								cout << "Nhap ten tai khoan" << endl;
-								getline(cin, ten);
-								cout << "Nhap pass " << endl;
-								cout << "Nhap lai pass" << endl;
-								cout << "Tao tai khoan thanh cong" << endl;
-							}
-						}
-					}
-					break;
-				case 6:
 					x.Guitinnhan(ls_User);
 					break;
-				case 7:
+				case 4:
 					x.Xemtinnhan();
-					break;
-				case 8:
-					cout << "Nhap ten dang nhap admin" << endl;
-					cin.ignore();
-					getline(cin, ten);
-					cout << "Nhap pass admin" << endl;
-					getline(cin, pass);
-					if (ten == ad.get_ten() && pass == ad.get_pass())
-					{
-						cout << "Dang nhap thanh cong";
-						ad.Promotion();
-					}
-					else
-					{
-						cout << "Dang nhap sai" << endl;
-					}
 					break;
 				case 0:
 					break;
@@ -261,6 +170,7 @@ int main()
 				cout << "4. Khoa sach" << endl;
 				cout << "5. Mo khoa sach" << endl;
 				cout << "6. Gui tin nhan" << endl;
+				cout << "7. Tao khuyen mai" << endl;
 				cout << "0. Thoat" << endl;
 				cout << "-------------------------------------------------" << endl;
 				cout << "Nhap lua chon" << endl;
@@ -286,6 +196,9 @@ int main()
 					break;
 				case 6:
 					ad.Guitinnhan(ls_User);
+					break;
+				case 7:
+					ad.Promotion();
 					break;
 				case 0:
 					loginad = 0;

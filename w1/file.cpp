@@ -96,6 +96,7 @@ void file::GhiFileTacGia(vector<TacGia> ls_tg)
 	{
 		fileout << ls_tg[i].get_ten() << "\t" << ls_tg[i].get_pass() << endl;
 	}
+	fileout.close();
 }
 
 void file::GhiFileNXB(vector<NXB> ls_NXB)
@@ -136,13 +137,19 @@ void file::GhiFileSach(ListSach l)
 	{
 		fileout << "\n" << l.ls_sach[i].get_tensach() << "\t" << l.ls_sach[i].get_masach() << "\t" << l.ls_sach[i].get_giatien() << "\t" << l.ls_sach[i].get_TenTacGia() << "\t" << l.ls_sach[i].get_NhaXuatBan()<<"\t"<<l.ls_sach[i].anSach;
 	}
+	fileout.close();
 }
 
-void file::GhiFileHoadon(vector<HoaDon>ls_hoadon)
+void file::GhiFileHoadon(User us)
 {
 	fstream fileout;
 	fileout.open("Hoadon.txt", ios::app);
-	//fileout<<""
+	for (int i = 0; i < us.ls_hoadon.size(); i++)
+	{
+		HoaDon temp = us.ls_hoadon[i];
+		fileout << "\n" << us.getName() << "\t" << temp.Get_book().get_tensach() << "\t" << temp.Get_soluong() << "\t" << temp.Get_tien();
+	}
+	fileout.close();
 }
 
 void file::WriteUSERages(vector<User> ls_users)
@@ -185,7 +192,7 @@ void file::ReadUSERover18(vector<User> &ls_users)
 {
 	fstream filein;
 	string ten;
-	filein.open("USER[AGEover18].txt", ios::in);
+	filein.open("USER[AGESover18].txt", ios::in);
 	while (filein.eof()==false)
 	{
 		User temp;
@@ -210,6 +217,3 @@ void file::ReadUSERlesster18(vector<User>& ls_users)
 	}
 	filein.close();
 }
-
-
-

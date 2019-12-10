@@ -11,8 +11,8 @@ private:
 	string Name;
 	int Age;
 	string pass;
-	vector<HoaDon>ls_hoadon;
 public:
+	vector<HoaDon>ls_hoadon;
 	string message;
 	void Nhapthongtin();
 	void Muasach(ListSach &l);

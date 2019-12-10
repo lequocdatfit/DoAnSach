@@ -203,7 +203,7 @@ void ADMIN::Promotion()
 	if (luachon == 1)
 	{
 		this->Promotionover18 = true;
-		cout << "Nhap giam gia" << endl;
+		cout << "Nhap % giam gia: " << endl;
 		cin >> giamgiaover18;
 		this->giamgiaover18 = giamgiaover18;
 	}

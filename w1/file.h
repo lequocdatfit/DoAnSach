@@ -14,7 +14,7 @@ public:
 	void GhiFileUser(vector<User>ls_User);
 	void GhithemUser(User x);
 	void GhiFileSach(ListSach l);
-	void GhiFileHoadon(vector<HoaDon>ls_hoadon);
+	void GhiFileHoadon(User us);
 	void WriteUSERages(vector<User>ls_users);
 	void ReadUSERover18(vector<User>&ls_users);
 	void ReadUSERlesster18(vector<User> &ls_users);

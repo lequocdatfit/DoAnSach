@@ -1,0 +1,14 @@
+ABC	OOP	2	120000
+ABC	ctdl	4	159960
+jack	OOP	2	120000
+jack	lam giau	4	80000
+tk191	backimthang	6	133920
+tk191	lam giau	3	60000
+jack	concobebe	4	200000
+jack	ctdl	3	119970
+jack	ctdl	3	119970
+tk191	lam giau	1	20000
+ABC	lam giau	3	60000
+jack	OOP	2	120000
+ABC	ctdl	5	199950
+jack	concobebe	4	200000
